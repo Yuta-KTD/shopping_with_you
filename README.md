@@ -1,4 +1,4 @@
-# ふたりのお買い物　 hopping_with_you
+# ふたりのお買い物　 shopping_with_you
 
 ふたりのお買い物
 

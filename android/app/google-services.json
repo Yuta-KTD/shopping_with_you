@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "282104601377",
+    "project_id": "shopping-with-you-f64a0",
+    "storage_bucket": "shopping-with-you-f64a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282104601377:android:bc38378d6880f0644c3c60",
+        "android_client_info": {
+          "package_name": "com.example.shopping_with_you"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282104601377-3kcbp29ac4h0s0tti0qsk25scn9jdnq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrgSx_vCq1n25tuVCkzAwjr0DEmvdF024"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282104601377-3kcbp29ac4h0s0tti0qsk25scn9jdnq8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "282104601377-t5rki43n7oprhp82gi8n15mhp72akdbf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shoppingWithYou"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

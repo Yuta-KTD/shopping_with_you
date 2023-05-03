@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shopping_with_you/ui/screen/login_screen.dart';
+import 'package:shopping_with_you/ui/screen/sign_up_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -22,9 +22,9 @@ final GoRouter _router = GoRouter(
       },
       routes: <RouteBase>[
         GoRoute(
-          path: 'singin',
+          path: 'singup',
           builder: (BuildContext context, GoRouterState state) {
-            return LoginScreen();
+            return const SingUpScreen();
           },
         ),
       ],
@@ -59,12 +59,10 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'ログイン画面はこちら',
-            ),
+            const Text('サインアップ画面はこちらから'),
             ElevatedButton(
-              onPressed: () => context.go('/singin'),
-              child: const Text('ログイン画面'),
+              onPressed: () => context.go('/singup'),
+              child: const Text('サインアップ画面'),
             )
           ],
         ),

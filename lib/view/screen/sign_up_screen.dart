@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:shopping_with_you/ui/component/form_text_field.dart';
+import 'package:shopping_with_you/view/component/form_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SingUpScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 obscureText: true,
               ),
               ElevatedButton(
-                onPressed: _submit,
+                onPressed: _submit(),
                 child: const Text('サインアップ'),
               ),
             ],

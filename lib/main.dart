@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shopping_with_you/ui/screen/sign_up_screen.dart';
+import 'package:shopping_with_you/view/screen/sign_up_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {

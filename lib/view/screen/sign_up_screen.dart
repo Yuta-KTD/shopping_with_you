@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shopping_with_you/view/component/form_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class SingUpScreen extends StatefulWidget {
-  const SingUpScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SingUpScreen> createState() => _SingUpScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SingUpScreenState extends State<SingUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -33,7 +34,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 obscureText: true,
               ),
               ElevatedButton(
-                onPressed: _submit(),
+                onPressed: () => _submit(),
                 child: const Text('サインアップ'),
               ),
             ],
@@ -48,7 +49,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
   }
 
   /// サインアップボタン用
-  _submit() async {
+  Future<void> _submit() async {
     debugPrint(_formKey.currentState?.value['userName']);
     debugPrint(_formKey.currentState?.value['password']);
     try {
@@ -56,6 +57,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
         email: _formKey.currentState?.value['userName'],
         password: _formKey.currentState?.value['password'],
       );
+      context.go('/singup');
     } on FirebaseAuthException catch (e) {
       /// パスワードが弱い場合
       if (e.code == 'weak-password') {

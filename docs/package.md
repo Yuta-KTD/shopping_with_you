@@ -2,6 +2,9 @@
 
 ## Firebase 関連
 
+| ライブラリ | 用途 |
+| ---------- | ---- |
+
 - firebase_core
 - firebase_auth
   - 認証に使用
@@ -11,4 +14,6 @@
 
 ## その他
 
-- go_router
+| ライブラリ                                      | 用途     |
+| ----------------------------------------------- | -------- |
+| [go_router](https://pub.dev/packages/go_router) | 画面遷移 |

@@ -4,14 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:shopping_with_you/view/component/form_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
 
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -23,18 +18,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
           key: _formKey,
           child: Column(
             children: [
-              FormTextField(
+              const FormTextField(
                 name: 'userName',
-                onChanged: (value) => _fieldOnChanged(value),
               ),
-              FormTextField(
+              const FormTextField(
                 name: 'password',
-                onChanged: (value) => _fieldOnChanged(value),
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
               ),
               ElevatedButton(
-                onPressed: () => _submit(),
+                onPressed: () => _submit(context),
                 child: const Text('サインアップ'),
               ),
             ],
@@ -44,12 +37,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  _fieldOnChanged(String? value) {
-    _formKey.currentState?.save();
-  }
-
   /// サインアップボタン用
-  Future<void> _submit() async {
+  Future<void> _submit(BuildContext context) async {
+    _formKey.currentState?.save();
     debugPrint(_formKey.currentState?.value['userName']);
     debugPrint(_formKey.currentState?.value['password']);
     try {
@@ -57,7 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         email: _formKey.currentState?.value['userName'],
         password: _formKey.currentState?.value['password'],
       );
-      context.go('/singup');
+      context.go('/');
     } on FirebaseAuthException catch (e) {
       /// パスワードが弱い場合
       if (e.code == 'weak-password') {

@@ -16,7 +16,7 @@ final routerProvier = Provider((ref) => GoRouter(
             GoRoute(
               path: 'signup',
               builder: (BuildContext context, GoRouterState state) =>
-                  const SignUpScreen(),
+                  SignUpScreen(),
             )
           ],
         ),

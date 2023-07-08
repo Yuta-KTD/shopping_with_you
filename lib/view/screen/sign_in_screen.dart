@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shopping_with_you/core/go_router.dart';
 import 'package:shopping_with_you/view/component/form_text_field.dart';
 
@@ -34,7 +35,7 @@ class SignInSceen extends ConsumerWidget {
                     obscureText: true,
                   ),
                   ElevatedButton(
-                    onPressed: () => _submit(),
+                    onPressed: () => _submit(context),
                     child: const Text('ログイン'),
                   ),
                 ],
@@ -54,7 +55,7 @@ class SignInSceen extends ConsumerWidget {
     _formKey.currentState?.save();
   }
 
-  _submit() async {
+  _submit(BuildContext context) async {
     debugPrint(_formKey.currentState?.value['userName']);
     debugPrint(_formKey.currentState?.value['password']);
     try {
@@ -62,6 +63,8 @@ class SignInSceen extends ConsumerWidget {
         email: _formKey.currentState?.value['userName'],
         password: _formKey.currentState?.value['password'],
       );
+      // TODO: 認証機能を別管理して、その結果をlistenまたはwatchして遷移するようにする
+      context.goNamed('/purchase');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');

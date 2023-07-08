@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends ConsumerWidget {
   SignUpScreen({super.key});
+  static const rootName = 'signUp';
 
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -53,7 +54,7 @@ class SignUpScreen extends ConsumerWidget {
         email: _formKey.currentState?.value['userName'],
         password: _formKey.currentState?.value['password'],
       );
-      context.goNamed('/singup');
+      context.pop();
     } on FirebaseAuthException catch (e) {
       /// パスワードが弱い場合
       if (e.code == 'weak-password') {

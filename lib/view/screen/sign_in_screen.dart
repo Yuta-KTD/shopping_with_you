@@ -5,9 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shopping_with_you/core/go_router.dart';
 import 'package:shopping_with_you/view/component/form_text_field.dart';
+import 'package:shopping_with_you/view/screen/purchase_screen.dart';
 
-class SignInSceen extends ConsumerWidget {
-  SignInSceen({super.key});
+class SignInScreen extends ConsumerWidget {
+  SignInScreen({super.key});
+  static const rootName = 'signIn';
 
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -64,7 +66,7 @@ class SignInSceen extends ConsumerWidget {
         password: _formKey.currentState?.value['password'],
       );
       // TODO: 認証機能を別管理して、その結果をlistenまたはwatchして遷移するようにする
-      context.goNamed('/purchase');
+      context.goNamed(PurchaseScreen.rootName);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
